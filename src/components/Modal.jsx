@@ -21,7 +21,7 @@ const Modal = ({ setModal,
 
     setTimeout(() =>{
         setModal(false);
-    }, 500)
+    }, 500);
   }
 
   const handleSubmit = e => {
