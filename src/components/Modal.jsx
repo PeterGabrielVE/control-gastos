@@ -5,7 +5,8 @@ import CerrarBtn from '../img/cerrar.svg';
 const Modal = ({ setModal, 
                 animarModal, 
                 setAnimarModal,
-                guardarGasto }) => {
+                guardarGasto,
+                gastoEditar  }) => {
 
 
     const [mensaje, setMensaje] = useState('');
@@ -14,7 +15,16 @@ const Modal = ({ setModal,
     const [categoria, setCategoria] = useState('');
     const [fecha, setFecha] = useState('');
     const [id, setId] = useState('');
-;
+
+    useEffect(() =>{
+      if( Object.keys(gastoEditar).length > 0 ){
+         setNombre(gastoEditar.nombre);
+         setCantidad(gastoEditar.cantidad);
+         setCategoria(gastoEditar.categoria);
+      }
+      
+    },[])               
+
   const ocultarModal = ()  => {
     
     setAnimarModal(false);
