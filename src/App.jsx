@@ -108,9 +108,11 @@ function App() {
               setFiltro={setFiltro}
             />
             <ListadoGastos
-            gastos={ gastos }
-            setGastoEditar={ setGastoEditar }
-            eliminarGasto={ eliminarGasto }
+              gastos={ gastos }
+              setGastoEditar={ setGastoEditar }
+              eliminarGasto={ eliminarGasto }
+              filtro={filtro}
+              gastosFiltrados={gastosFiltrados}
             />
           </main>
           <div className="nuevo-gasto">
