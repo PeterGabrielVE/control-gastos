@@ -31,17 +31,22 @@ function App() {
   const handleNuevoGasto = () =>{
     setModal(true);
     setGastoEditar({})
-    
+
     setTimeout(() => {
       setAnimarModal(true)
     }, 500);
   }
 
   const guardarGasto = gasto =>{
-    gasto.id = generarID();
-    gasto.fecha = Date.now();
-    setGastos([...gastos, gasto]);
 
+    if(gasto.id){
+      const gastosActualizados = gastos.map( gastoState => gastoState.id === gasto.id ? gasto : gastoState )
+      setGastos(gastosActualizados);
+    }else{
+      gasto.id = generarID();
+      gasto.fecha = Date.now();
+      setGastos([...gastos, gasto]);
+    }
     setAnimarModal(false);
 
     setTimeout(() =>{
